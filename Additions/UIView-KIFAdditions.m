@@ -510,7 +510,11 @@ typedef struct __GSEvent * GSEventRef;
 
 - (UIEvent *)eventWithTouch:(UITouch *)touch;
 {
+  // _touchesEvent is a private selector, but we can ignore the warning because this is only used for testing.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
     UIEvent *event = [[UIApplication sharedApplication] _touchesEvent];
+#pragma clang diagnostic pop
     
     CGPoint location = [touch locationInView:touch.window];
     KIFEventProxy *eventProxy = [[KIFEventProxy alloc] init];

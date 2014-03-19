@@ -87,7 +87,7 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
 + (instancetype)actorInFile:(NSString *)file atLine:(NSInteger)line delegate:(id<KIFTestActorDelegate>)delegate;
 
 @property (nonatomic, readonly) NSString *file;
-@property (nonatomic, readonly) NSInteger line;
+@property (nonatomic, readonly) int line; //converted into int because SenTestingKit expects an int argument
 @property (nonatomic, readonly) id<KIFTestActorDelegate> delegate;
 @property (nonatomic) NSTimeInterval executionBlockTimeout;
 

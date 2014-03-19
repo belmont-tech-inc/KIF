@@ -73,7 +73,7 @@
     self = [super init];
     if (self) {
         _file = file;
-        _line = line;
+        _line = (int)line;
         _delegate = delegate;
         _executionBlockTimeout = [[self class] defaultTimeout];
     }
